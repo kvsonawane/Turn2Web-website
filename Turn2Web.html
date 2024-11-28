@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn2Web - Web Presence, Simplified</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .logo span {
+            color: #ff6b35;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #ff6b35;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e85a2a;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #ff6b35;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ff6b35;
+            color: white;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .tagline {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #ff6b35;
+            margin-bottom: 2rem;
+        }
+
+        .mission {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta {
+            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .about-us {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem; /* Adjust padding to give it more space */
+    background-color: #FAF9F6;
+    border-radius: 10px;
+}
+
+.about-us h2 {
+    font-size: 3rem; /* Make the heading a bit smaller */
+    font-weight: 700; /* Bold the heading */
+    color: #ff6b35;
+    margin-bottom: 1rem; /* Add space below the heading */
+    line-height: 1.2; /* Adjust line-height to reduce space between words */
+}
+
+.about-us p {
+    max-width: 800px; /* Limit the width of the text for better readability */
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Control the width of the slider */
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden; /* Hide overflow of non-visible images */
+    border-radius: 10px;
+}
+
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the images cover the container */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 1s ease; /* Fade effect when changing images */
+}
+
+.slider-image.active {
+    opacity: 1; /* Visible image */
+}
+
+.why-choose-us {
+    text-align: center; /* Center align text within the div */
+    background-color: #FAF9F6;
+    padding: 3rem;
+    width: 100%; /* Make the width 90% of the viewport */
+    margin: 1rem auto; /* Center the section horizontally */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+
+
+.why-choose-us h2 {
+    font-size: 2.5rem;
+    color: #ff6b35;
+    font-weight: 700;
+    margin-bottom: 1.5rem; /* Space between title and subpoints */
+}
+
+.why-choose-us p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.8;
+    margin: 1rem 0; /* Space between each paragraph */
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: block; /* Allow text to be centered properly */
+
+}
+
+.why-choose-us p:hover {
+    transform: translateY(-5px);
+    color: #ff6b35;
+}
+
+.why-choose-us p span {
+    font-weight: bold;
+    color: #ff6b35;
+}
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Control the width of the slider */
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden; /* Hide overflow of non-visible images */
+    border-radius: 10px;
+}
+
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the images cover the container */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 1s ease; /* Fade effect when changing images */
+}
+
+.slider-image.active {
+    opacity: 1; /* Visible image */
+}
+
+         .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2{
+            color: #ff6b35;
+            font-size: 2.5rem;
+        }
+
+        ..platform-capabilities {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .capability-item {
+            background-color: #FFF5E6;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .capability-item:hover{
+            transform: translateY(-5px);
+            color: #ff6b35;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .capability-item h3 p span{
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .capability-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .features {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    width: 100%; /* Similar width to match other sections */
+    margin: 2rem auto; /* Centers the section horizontally */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: -48px;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    color: #ff6b35;
+    font-weight: 700;
+    margin-bottom: 2rem; /* Space between title and the feature blocks */
+}
+
+.feature-blocks {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    justify-content: center; /* Centers all feature blocks */
+    gap: 2rem; /* Adds space between blocks */
+}
+
+.feature-block {
+    background-color: #F9F6EE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 250px; /* Fixed width for the blocks */
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-block:hover {
+    transform: translateY(-5px);
+}
+
+.feature-block h3 {
+    font-size: 1.5rem;
+    color: #ff6b35;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.feature-block p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+#pricing {
+    background-color: #FAF9F6;
+    padding: 3rem;
+    width: 100%;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensures the title can be positioned at the top */
+    margin-top: -16px;
+}
+
+#pricing h2 {
+    font-size: 2.5rem;
+    color: #ff6b35;
+    font-weight: 700;
+    position: absolute; /* Positions the title absolutely at the top */
+    top: 40px; /* Moves the title up to the top */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the title horizontally */
+    background-color: #FAF9F6;
+    padding: 0 1rem; /* Adds some padding to avoid text overlap */
+    z-index: 1;
+}
+
+.pricing-info {
+    text-align: left; /* Align the text to the left */
+    margin: 0 auto 2rem auto;
+    max-width: 80%; /* Set width for the block to be consistent */
+    font-size: 1rem;
+    color: #555;
+}
+
+.pricing-info p {
+    margin-bottom: 1rem;
+}
+
+.pricing-plans {
+    display: flex;
+    justify-content: space-between; /* Creates space between the blocks */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 2rem; /* Space between the blocks */
+    margin-top: 2rem; /* Space between the plans and the info above */
+}
+
+.pricing-plan {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 2rem;
+    flex: 1; /* Allow blocks to grow and shrink */
+    min-width: 250px; /* Minimum width for smaller screens */
+    max-width: 300px; /* Maximum width to keep blocks consistent */
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.pricing-plan:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-plan h3 {
+    font-size: 1.7rem;
+    color: #ff6b35;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.pricing-plan .price {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.pricing-plan p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-plan button {
+    background-color: #ff6b35;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pricing-plan button:hover {
+    background-color: #ff4f1a;
+}
+
+
+#faq {
+    background-color: #FAF9F6;
+    padding: 3rem;
+    width: 100%;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center content inside the section */
+    margin-top: -16px;
+}
+
+#faq h2 {
+    font-size: 2.5rem;
+    color: #ff6b35;
+    font-weight: 700;
+    position: absolute; /* Positions the title absolutely at the top */
+    top: 4400px; /* Moves the title up to the top */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the title horizontally */
+    background-color: #FAF9F6;
+    padding: 0 1rem; /* Adds some padding to avoid text overlap */
+    z-index: 1;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* Align FAQ content to the left */
+
+}
+
+.faq-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+
+}
+
+.faq-item:hover {
+   background-color: #ffefeb; /* Soft background color change on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Add shadow on hover */
+    transform: translateY(-3px); /* Slight upward movement */
+    
+}
+
+.faq-question {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    color: #ff6b35;
+    font-weight: bold;
+    transition: transform 0.3s ease; /* Smooth rotation on hover */
+}
+
+.faq-answer {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    display: none; /* Hidden by default */
+    margin-top: 1rem;
+    opacity: 0; /* Initially transparent */
+    transition: opacity 0.3s ease; /* Smooth fade-in transition */
+}
+
+
+
+.faq-item.active .faq-answer {
+    display: block;
+    opacity: 1; /* Fully visible on active */
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg); /* Rotate toggle to indicate collapse */
+}
+
+
+.contact-section {
+    background-color: #FAF9F6;
+    padding: 3rem;
+    width: 99vw; /* Make the section fit the full width of the viewport */
+    height: 100vh; /* Make the section fit the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center content vertically and horizontally */
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: -16px;
+}
+
+.contact-container {
+    max-width: 1200px; /* Ensure content stays centered and doesn't stretch too far */
+    margin: 0 auto; /* Center the content inside the section */
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    color: #ff6b35;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.contact-card {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.affiliations {
+    margin-top: 2rem;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.affiliations:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.affiliations h3 {
+    font-size: 1.5rem;
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.affiliations p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: #ff6b35;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff4f1a;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: -30px;
+    border-radius: 10px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    gap: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logo {
+    margin-bottom: 1rem;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.footer-section p, .footer-section ul, .footer-section a {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #ff6b35;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ff6b35;
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+    <nav>
+        <a href="#home" style="text-decoration: none;">
+        <img src=https://rs.turn2web.com/rs/site/turn2web/assets/img/logo.jpg alt="Turn2Web Logo" class="footer-logo" style="width: 150px; height: 50px;">
+        </a>
+        <div class="nav-links">
+            <a href="#home">Home</a> <!-- Scrolls to Home section -->
+            <a href="#about-us">About</a> <!-- Scrolls to About section -->
+            <a href="#f">Features</a> <!-- Scrolls to Features section -->
+            <a href="#pricing">Pricing</a> <!-- Redirects to a different page -->
+            <a href="#faq">FAQ</a> <!-- Scrolls to FAQ section -->
+            <a href="#contact">Contact Us</a> <!-- Redirects to a different page -->
+        </div>
+        <div class="cta-buttons">
+            <a href="https://turn2web.com/login" target="_blank" style="text-decoration:none;">
+            <button class="btn btn-secondary">Sign In</button>
+            </a>
+            <a href="https://turn2web.com/registration/user" target="_blank" style="text-decoration:none;">
+            <button class="btn btn-primary">Sign Up</button>
+            </a>
+        </div>
+    </nav>
+</header>
+
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="hero">
+            <h1><img src=https://rs.turn2web.com/rs/site/turn2web/assets/img/logo.jpg alt="Turn2Web Logo" class="footer-logo" style="width: 300px; height: 100px; border-radius: 10px;"></h1>
+            <p class="tagline">Web Presence, Simplified</p>
+            <p class="mission">Our mission is to empower individuals and businesses to create stunning websites at an affordable cost, making cutting-edge design accessible to all.</p>
+            <a href="https://turn2web.com/registration/user" style="text-decoration: none;">
+            <button class="btn btn-primary cta">Try with free SignUp credits</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="about-us">
+        <h2>About Us</h2>
+        <p>Turn2Web is a web development platform that simplifies the process of creating beautiful and professional websites. We believe in making website building accessible to everyone, no matter your coding expertise. Our team is passionate about delivering top-notch services that cater to all your web development needs.</p>
+        <div class="image-slider">
+        <img src="https://wallpapercave.com/wp/wp2065958.jpg" alt="Image 1" class="slider-image active">
+        <img src="https://wallpapercave.com/uwp/uwp4280176.png" alt="Image 2" class="slider-image">
+        <img src="https://wallpapercave.com/wp/wp13098068.jpg" alt="Image 3" class="slider-image">
+    </div>
+    </section>
+    
+
+    <!-- Why Choose Us Section -->
+    <div class="why-choose-us">
+    <h2>Why Choose Us</h2> <!-- Title above subpoints -->
+    <p><span>User-Friendly Interface:</span> No coding skills required.</p>
+    <p><span>Affordable Plans:</span> High-quality websites at the lowest possible cost.</p>
+    <p><span>Versatile Templates:</span> A wide variety of templates to suit your needs.</p>
+    <p><span>SEO Optimized:</span> Enhance your visibility on search engines.</p>
+    <p><span>Responsive Design:</span> Websites that look great on all devices.</p>
+    <p><span>Style Your Way:</span> Freedom to update your own styles.</p>
+    <div class="image-slider">
+        <img src="https://wallpapercave.com/uwp/uwp4240534.png" alt="Image 1" class="slider-image active">
+        <img src="https://wallpapercave.com/uwp/uwp4280176.png" alt="Image 2" class="slider-image">
+        <img src="https://wallpapercave.com/wp/wp13098068.jpg" alt="Image 3" class="slider-image">
+    </div>
+</div>
+ <section id="platform-capabilities" class="section">
+            <h2>Platform Capabilities</h2>
+            <div class="platform-capabilities">
+                <div class="capability-item">
+                    <h3>Modular Architecture</h3>
+                    <p>Our platform's modularity separates CSS, HTML, JavaScript, and content, enhancing maintainability, scalability, and team collaboration.</p>
+                </div>
+                <div class="capability-item">
+                    <h3>Adoptable Layouts</h3>
+                    <p>Turn2Web offers adoptable layouts that auto-adjust colors, fonts, and styles, ensuring consistent, appealing design without manual adjustments.</p>
+                </div>
+                <div class="capability-item">
+                    <h3>Hybrid CMS Capability</h3>
+                    <p>Turn2Web's hybrid CMS stores content separately, enabling independent front-end development, blending headless CMS flexibility with traditional CMS ease.</p>
+                </div>
+            </div>
+        </section>
+        
+    <div id = "f" class="features">
+    <h2>Features</h2>
+    <div class="feature-blocks">
+        <div class="feature-block">
+            <h3>Animations</h3>
+            <p>Animations (load & scroll) pre-enabled</p></div>
+
+        <div class="feature-block">
+            <h3>Backgrounds</h3><p>Add motion: animate your templates</p></div>
+
+        <div class="feature-block">
+            <h3>Enquiry Forms</h3><p>Pre-built inquiry forms with flexible options</p></div>
+
+        <div class="feature-block">
+            <h3>White labeled</h3><p>Your brand, nothing else: 100% white labeled</p></div>
+
+        <div class="feature-block">
+            <h3>RTL</h3><p>Designs work flawlessly in any language</p></div>
+
+        <div class="feature-block">
+            <h3>Restore</h3><p>Effortless rollback: Revert to previous designs</p></div>
+
+        <div class="feature-block">
+            <h3>Permanent Link</h3><p>Customizable link: On/off for sharing control</p></div>
+
+        <div class="feature-block">
+            <h3>Temporary Link</h3><p>Share privately: Expiring website links</p></div>
+
+        <div class="feature-block">
+            <h3>Domain Name</h3><p>Go pro: Link website to your domain</p></div>
+
+        <div class="feature-block">
+            <h3>SSL</h3><p>Secure your custom deployments</p></div>
+    </div>
+</div>
+
+<section id="pricing" class="section">
+    <h2>Check out our amazing plans</h2>
+    <div class="pricing-info">
+        <p>1 Point = 1 Live Day</p>
+        <p>* 2 Points if linking to custom domain name (No Extra Charges, Launch Offer)</p>
+        <p>** Nominal charges apply for publish and few others</p>
+    </div>
+    <div class="pricing-plans">
+        <div class="pricing-plan">
+            <h3>Free/Zero Cost Start Points</h3>
+            <div class="price">₹0</div>
+            <p>You get 50 Points as the Sign Up Bonus to get ahead and test out the site</p>
+            <button class="btn btn-primary">Explore Now</button>
+        </div>
+        <div class="pricing-plan">
+            <h3>TopUp</h3>
+            <div class="price">₹100 / ₹200</div>
+            <p>You will get 110 Points or 220 Points for your extended usage accordingly.</p>
+            <button class="btn btn-primary">Get Started</button>
+        </div>
+        <div class="pricing-plan">
+            <h3>TopUp</h3>
+            <div class="price">₹300</div>
+            <p>You will get 330 Points accordingly for your hassle-free usage</p>
+            <button class="btn btn-primary">Get The More</button>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+        <div class="faq-item">
+            <div class="faq-question">
+                How many Web sites can be created by a single user
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                A single user can create multiple websites using Turn2Web. The exact number depends on your subscription plan and available credits.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Will I get domain as part of deployment?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Turn2Web provides a subdomain for your website by default. If you want to use a custom domain, you can easily link it to your website through our platform.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Why and how the company is able to give for very less cost
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                We leverage advanced technology and automation to streamline the website creation process, allowing us to offer high-quality services at competitive prices.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Will there be 24/7 call support?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                We offer comprehensive support through various channels. While 24/7 phone support may not be available, we provide quick responses through email and our help center.
+            </div>
+        </div>
+    </div>
+</section>
+
+<main>
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 class="contact-title">Contact Us</h2>
+            <p class="contact-subtitle">Get in touch with us & ask your Queries</p>
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <h3>Communication Address</h3>
+                    <p>Goitdev Technologies OPC pvt limited, Trinity Work Hub, Unit.No. 114, Manjeera Trinity Corporate, JNTU Hitech Road, Kukatpally, Hyderabad, Telangana 500072</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Company Address</h3>
+                    <p>Goitdev Technologies OPC pvt limited, Trinity Work Hub, Unit.No. 114, Manjeera Trinity Corporate, JNTU Hitech Road, Kukatpally, Hyderabad, Telangana 500072</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=contact@goitdev.com" style="text-decoration:none;">
+                    <p>contact@goitdev.com</p>
+                    </a>
+                </div>
+            </div>
+            <div class="affiliations">
+                <div class="affiliations-text">
+                    <h3>For Affiliations and Custom Integrations Feel Free to contact</h3>
+                    <p>Get Your Queries answered</p>
+                </div>
+                <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=contact@goitdev.com">
+                <button class="btn btn-primary">Contact Us</button>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src=https://rs.turn2web.com/rs/site/turn2web/assets/img/logo.jpg alt="Turn2Web Logo" class="footer-logo" style="width: 150px; height: 50px;">
+                <h3>Turn2Web.</h3>
+                <p>Web Presence Simplified</p>
+                <p>Our mission is to empower individuals and businesses to create stunning websites at an affordable cost, making cutting edge design accessible to all.</p>
+            </div>
+            <div class="footer-section">
+                <h3>USEFUL LINKS</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#f">Features</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>LEGAL</h3>
+                <ul class="footer-links">
+                    <li><a href="https://turn2web.com/policy/privacy">Privacy Policy</a></li>
+                    <li><a href="https://turn2web.com/policy/terms">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>SOCIAL</h3>
+                <div class="social-icons">
+                    <a href="https://x.com/Turn_2_Web?mx=2" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                        <img src="C:\Users\kvson\Desktop\logos.png" style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="https://www.linkedin.com/company/turn2web" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                        <img src="C:\Users\kvson\Desktop\linkedin.png" style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="https://www.youtube.com/@TURN2WEB-Intro" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                        <img src="C:\Users\kvson\Desktop\youtube.png" style="width: 24px; height: 24px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Powered by Goitdev technologies opc Pvt. Ltd. © 2024</p>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // Smooth Scroll for Same Page Navigation Links
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = this.getAttribute('href');
+            
+            // If the link is an internal link (starts with #), use smooth scroll
+            if (target.startsWith('#')) {
+                e.preventDefault(); // Prevent default anchor behavior
+                const targetId = target.substring(1); // Get the section ID
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } else {
+                // Allow default behavior for external links (different pages)
+                window.location.href = target;
+            }
+        });
+    });
+
+    // FAQ Toggle Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const faqQuestion = item.querySelector('.faq-question');
+        faqQuestion.addEventListener('click', () => {
+            item.classList.toggle('active');
+            const faqAnswer = item.querySelector('.faq-answer');
+            if (item.classList.contains('active')) {
+                faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px"; // Expand the answer
+            } else {
+                faqAnswer.style.maxHeight = "0px"; // Collapse the answer
+            }
+        });
+    });
+
+    // Show Alert on Sign Up or Contact Us Button Click
+    document.querySelectorAll('.btn-primary').forEach(button => {
+        button.addEventListener('click', function () {
+            alert(`Button clicked: ${this.innerText}`);
+        });
+    });
+
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.slider-image');
+
+    function changeImage() {
+        images[currentImageIndex].classList.remove('active'); // Hide current image
+        currentImageIndex = (currentImageIndex + 1) % images.length; // Move to next image
+        images[currentImageIndex].classList.add('active'); // Show new image
+    }
+
+    // Change image every 3 seconds
+    setInterval(changeImage, 3000);
+</script>
+
+
+</body>
+</html>
